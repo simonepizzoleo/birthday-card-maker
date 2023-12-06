@@ -109,10 +109,12 @@ export default function Form(props: FormProps) {
             </section>
 
             { /* Button */ }
-            <Button
-                className="homepage-container__form-button"
-                label="🚀 Scarica immagine"
-            />
+            <button
+                type="button"
+                className="button homepage-container__form-button"
+                title="🚀 Scarica immagine"
+                onClick={ props.downloadCard }
+            >🚀 Scarica immagine</button>
 
         </article>
 
