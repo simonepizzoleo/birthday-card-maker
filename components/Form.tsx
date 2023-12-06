@@ -1,5 +1,4 @@
 import { FormEvent, MouseEvent, useState } from "react";
-import Button from "./Button";
 import { CardProps, Icon } from "./Card";
 
 type AcceptableInputEvents = FormEvent<HTMLInputElement> | FormEvent<HTMLTextAreaElement>;
@@ -121,7 +120,7 @@ export default function Form(props: FormProps) {
 
     // Function to validate the input
     // before updating the Object
-    function validateValue(EVENT: AcceptableInputEvents) {
+    function validateValue(EVENT: AcceptableInputEvents): void {
 
         const { PARAMETER_TO_UPDATE, VALUE } = sanitizeValue(EVENT);
         updateProps(PARAMETER_TO_UPDATE, VALUE);
@@ -129,7 +128,7 @@ export default function Form(props: FormProps) {
     }
 
     // Function to retrieve the clicked icon
-    function saveSelectedIcon(EVENT: AcceptableClickEvents) {
+    function saveSelectedIcon(EVENT: AcceptableClickEvents): void {
 
         const { PARAMETER_TO_UPDATE, VALUE } = sanitizeValue(EVENT);
         updateProps(PARAMETER_TO_UPDATE, VALUE);
@@ -140,7 +139,7 @@ export default function Form(props: FormProps) {
     }
 
     // Function to update the Object
-    function updateProps(PARAMETER_TO_UPDATE: string, INPUT: string) {
+    function updateProps(PARAMETER_TO_UPDATE: string, INPUT: string): void {
 
         // Create a new Object with the
         // updated values inside itself
