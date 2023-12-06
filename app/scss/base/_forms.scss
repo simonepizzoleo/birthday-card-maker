@@ -1,0 +1,39 @@
+// Forms
+
+button,
+a {
+    transition: $transition-fast;
+}
+
+input,
+textarea {
+    border: 1px solid rgba(153, 153, 153, 0.4);
+    border-radius: 12px;
+    padding: 20px;
+    background-color: $color-white;
+    width: 100%;
+    display: block;
+
+    // Placeholder
+    &::placeholder {
+        color: $color-dark;
+        opacity: 0.5;
+    }
+
+}
+
+input[type="color"] {
+    cursor: pointer;
+
+    // Swatch
+    &::-webkit-color-swatch {
+        border-radius: 6px;
+    }
+
+}
+
+textarea {
+    resize: vertical;
+    min-height: 150px;
+    max-height: 250px;
+}

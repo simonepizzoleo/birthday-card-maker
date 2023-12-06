@@ -1,0 +1,40 @@
+// Colors
+
+$color-primary: #3643B2;
+$color-primary-light: #E5E5FA;
+
+$color-dark: #161630;
+
+$color-white: #FFFFFF;
+$color-gray: #E9E9E9;
+$color-black: #000000;
+
+// Transitions
+
+$transition-fast: 0.2s ease;
+
+// Breakpoints
+
+@mixin bp-sm {
+    
+    @media only screen and (min-width: 768px) {
+        @content;
+    }
+
+}
+
+@mixin bp-md {
+    
+    @media only screen and (min-width: 1024px) {
+        @content;
+    }
+
+}
+
+@mixin bp-lg {
+    
+    @media only screen and (min-width: 1440px) {
+        @content;
+    }
+
+}

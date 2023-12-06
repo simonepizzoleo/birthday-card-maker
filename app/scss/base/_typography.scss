@@ -1,0 +1,63 @@
+// Typography
+
+body {
+    background-color: $color-primary-light;
+}
+
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-primary);
+    color: $color-dark;
+}
+
+body,
+p {
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 500;
+    margin: 0 0 10px 0;
+
+    @include bp-md {
+
+        & {
+            margin: 0 0 15px 0;
+        }
+
+    }
+
+}
+
+h1 {
+    font-size: 20px;
+    line-height: 25px;
+
+    @include bp-md {
+
+        & {
+            font-size: 30px;
+            line-height: 35px;
+        }
+
+    }
+
+}
+
+p {
+    margin: 0 0 10px 0;
+    opacity: 0.8;
+}

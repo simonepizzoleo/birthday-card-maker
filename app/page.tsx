@@ -1,95 +1,66 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+'use client';
 
+import { useState } from "react";
+import Card, { CardProps } from "@/components/Card";
+import Form from "@/components/Form";
+import Image from "next/image";
+
+// Component
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+	let [cardProps, setCardProps] = useState<CardProps>({
+		icon: null,
+		heading: null,
+		description: null,
+		color: null
+	});
+	
+	// Render
+	return (
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+		<main className="homepage">
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+			{ /* Container */ }
+			<div className="homepage-container">
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
+				{ /* Form */ }
+				<Form
+					card={ cardProps }
+					setCardProps={ setCardProps }
+				/>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+			</div>
+
+			{ /* Result */ }
+			<aside className="homepage-result">
+
+				{ /* Picture */ }
+				<Image
+					className="homepage-result__picture"
+					src={ '/result-background.png' }
+					alt="Picture"
+					fill
+					priority
+				/>
+
+				{ /* Overlay */ }
+				<div
+					className="homepage-result__overlay"
+					style={ { backgroundColor: cardProps.color || '#3643B2' } }
+				></div>
+
+				{ /* Card */ }
+				<Card
+					icon={ cardProps.icon }
+					heading={ cardProps.heading }
+					description={ cardProps.description }
+					color={ cardProps.color || '#3643B2' }
+				/>
+
+			</aside>
+
+		</main>
+
+	);
+
 }

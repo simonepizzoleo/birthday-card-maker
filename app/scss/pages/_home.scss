@@ -1,0 +1,239 @@
+// Homepage
+.homepage {
+
+    @include bp-sm {
+
+        & {
+            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+        }
+
+    }
+
+}
+
+// Container
+.homepage-container {
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    // Form
+    &__form {
+        width: 100%;
+        max-width: 500px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        &-heading,
+        &-description,
+        &-button {
+            width: 100%;
+        }
+
+        // Icons
+        &-icons {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+        }
+
+        // Icon
+        &-icon {
+            position: relative;
+            cursor: pointer;
+            flex: 1;
+            aspect-ratio: 1 / 1;
+            background-color: $color-white;
+            border: 1px solid rgba(153, 153, 153, 0.4);
+            border-radius: 12px;
+            outline: 1px solid transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            // [State] Hover
+            &:hover {
+                background-color: darken($color-white, 3);
+            }
+
+            // [State] Pressed
+            &:active {
+                background-color: darken($color-white, 6);
+            }
+
+            // [Modifier] Active
+            &--active {
+                outline: 1px solid $color-primary;
+            }
+
+        }
+
+        // [State] Hover
+        &-icon:hover &-icon-popup {
+            opacity: 1;
+        }
+
+        // Grid
+        &-grid {
+            display: grid;
+            grid-template-columns: 50px auto;
+            gap: 10px;
+        }
+
+        &-color,
+        &-pattern {
+            min-width: 100%;
+        }
+
+        // Color
+        &-color {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            // Input
+            input {
+                padding: 7.5px;
+                aspect-ratio: 1 / 1;
+                height: auto;
+            }
+            
+        }
+
+        // [State] Hover
+        &-color:hover &-color-popup {
+            opacity: 1;
+        }
+
+    }
+
+    @include bp-md {
+
+        & {
+
+            // Form
+            &__form {
+
+                // Icon
+                &-icon {
+                    font-size: 18px;
+                }
+
+                // Grid
+                &-grid {
+                    grid-template-columns: 60px auto;
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+// Result
+.homepage-result {
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    // Picture
+    &__picture {
+        z-index: -2;
+        filter: grayscale(1);
+    }
+
+    // Blur
+    &__overlay {
+        display: block;
+        position: absolute;
+        inset: 0;
+        backdrop-filter: blur(50px);
+        z-index: -1;
+        background-color: $color-primary;
+        mix-blend-mode: difference;
+    }
+
+    // Card
+    &__card {
+        border-radius: 12px;
+        overflow: hidden;
+        background-color: $color-white;
+        text-align: center;
+        width: 100%;
+        max-width: 500px;
+        box-shadow: 0 30px 75px 0 rgba(30, 30, 30, 0.4);
+
+        // Pattern
+        &-pattern {
+            background-color: $color-primary;
+            height: 150px;
+        }
+
+        // Icon
+        &-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            border-radius: 100px;
+            outline: 4px solid $color-white;
+            background-color: $color-primary-light;
+            margin: -40px auto 20px auto;
+            font-size: 30px;
+            line-height: 1;
+            position: relative;
+        }
+
+        // Content
+        &-content {
+            padding: 0 30px 30px 30px;
+        }
+
+        // Description
+        &-description {
+            margin: unset;
+        }
+
+    }
+
+    @include bp-sm {
+
+        & {
+            height: 100%;
+        }
+
+    }
+
+    @include bp-md {
+
+        & {
+
+            // Card
+            &__card {
+
+                // Description
+                &-description {
+                    font-size: 18px;
+                    line-height: 28px;
+                }
+
+            }
+
+        }
+
+    }
+
+}
