@@ -6,7 +6,8 @@ type AcceptableClickEvents = MouseEvent<HTMLButtonElement, globalThis.MouseEvent
 
 interface FormProps {
     card: CardProps,
-    setCardProps: (a: CardProps) => void
+    setCardProps: (a: CardProps) => void,
+    downloadCard: () => void
 }
 
 // Component

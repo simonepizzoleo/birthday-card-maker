@@ -1,3 +1,5 @@
+import { RefObject } from "react";
+
 export enum Icon {
     '🎂' = 'Torta',
     '😁' = 'Sorriso',
@@ -16,19 +18,23 @@ export interface CardProps {
 }
 
 interface CardPropsAdditional {
-    color: string
+    color: string,
+    elementReference: RefObject<HTMLElement>
 }
 
 // Component
 export default function Card(props: CardProps & CardPropsAdditional) {
-
+    
     const FALLBACK_ICON = '🎂';
     const FALLBACK_HEADING = 'Felice compleanno, e tantissimi auguri!';
     const FALLBACK_DESCRIPTION = 'Questa magnifica giornata è dedicata a te: goditi tutto il tempo a tua disposizione, e circondati di amore e cibo!';
 
     return (
 
-        <article className="homepage-result__card">
+        <article
+            className="homepage-result__card"
+            ref={ props.elementReference }
+        >
 
             { /* Pattern */ }
             <div
