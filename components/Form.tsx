@@ -103,7 +103,6 @@ export default function Form(props: FormProps) {
                     type="button"
                     name="pattern"
                     className="button homepage-container__form-pattern"
-                    value="Hello"
                 ></button>
 
             </section>
